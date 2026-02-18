@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Lumtere Finance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+        .about-page h2 {
+            color: #0b4f6c;
+            margin: 2rem 0 1rem;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 18px rgba(0,50,70,0.04);
+        }
+        .about-card i {
+            font-size: 2.5rem;
+            color: #0f6b7d;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Lumtere Finance<span>Group</span> Ltd</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>  <!-- Fixed: href and active class -->
+                <a href="eligibility.html">Eligibility</a>      <!-- Removed active class -->
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">T&C</a>
+                <a href="apply.html" class="apply-nav-btn">Apply now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container about-page">
+            <h1 class="section-title">About Lumtere Finance</h1>  <!-- Improved title -->
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>Bridge the gap between SMEs and fast, transparent lending without red tape.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>8+ Years Experience</h3>
+                    <p>Supporting local businesses, self‑employed professionals and micro‑enterprises.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-shield-alt"></i>  <!-- Changed to shield icon for security -->
+                    <h3>Bank-Level Security</h3>
+                    <p>Encryption for your documents and personal information.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-map-marker-alt"></i>  <!-- Changed to location icon -->
+                    <h3>Location</h3>
+                    <p>We are a Small Finance Company based in Lae, Morobe, Eriku 4th Street.</p>  <!-- Fixed capitalization -->
+                </div>
+            </div>
+
+            <h2>Our Story</h2>
+            <p>Founded in 2025, <strong>Lumtere Finance</strong> has helped over 5,000 small businesses access the funding they need to grow. We understand that traditional banks can be slow and inflexible, which is why we've created a streamlined process specifically for SMEs and self-employed individuals.</p>  <!-- Fixed company name -->
+            
+            <h2>Why Choose Us</h2>
+            <p>We offer same-day decisions, flexible collateral options, and a simple online application process. Our team of experienced finance professionals is dedicated to finding the right solution for your business.</p>
+            
+            <!-- Optional: Add contact info -->
+            <div style="margin-top: 3rem; padding: 2rem; background: #f3faff; border-radius: 24px; text-align: center;">
+                <i class="fas fa-phone-alt" style="color: #0f6b7d; font-size: 2rem; margin-bottom: 1rem;"></i>
+                <h3>Get in Touch</h3>
+                <p>📞 Phone: +675 123 4567<br>
+                📧 Email: info@lumterefinance.com<br>
+                🏢 Address: 4th Street, Eriku, Lae, Morobe Province</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>  <!-- Fixed: points to about.html -->
+                <a href="eligibility.html">Eligibility</a>  <!-- Removed active class -->
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms</a>
+                <a href="apply.html">Apply</a>
+            </div>
+            <div class="footer-copy">
+                © 2026 Lumtere Finance Ltd – Small finance group founded on the 25th of December 2025
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts - Note: script.js might not exist, consider removing if not needed -->
+    <script src="js/script.js"></script>
+    <script src="js/apply.js"></script>
+</body>
+</html>

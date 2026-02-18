@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now - Lumtere Finance</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- PDF.js for better PDF handling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .apply-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+        
+        .apply-form {
+            background: white;
+            padding: 2.5rem 3rem;
+            border-radius: 36px;
+            box-shadow: 0 25px 40px -12px #0b3b4f30;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            flex: 1 1 200px;
+        }
+        label {
+            font-weight: 600;
+            color: #1e5065;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1.5px solid #d4e5ed;
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: #fbfeff;
+            transition: 0.15s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2e8b99;
+            box-shadow: 0 0 0 4px #c4e3ed;
+        }
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin: 0.5rem 0 1rem;
+            flex-wrap: wrap;
+        }
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+        }
+
+        .conditional-block {
+            background: #f3faff;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 5px solid #2e8b99;
+        }
+
+        .file-note {
+            font-size: 0.9rem;
+            color: #255f73;
+            margin: 0.5rem 0 1rem;
+            background: #e4f2f7;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .terms-agree {
+            background: #edf6fa;
+            padding: 1.3rem 2rem;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 2.2rem 0 1.5rem;
+        }
+        .terms-agree input {
+            width: auto;
+            margin-right: 0.3rem;
+        }
+        .terms-agree label {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .btn-submit {
+            background: #0b4f6c;
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:disabled {
+            background: #9bb7c5;
+            cursor: not-allowed;
+        }
+        .btn-submit:hover:not(:disabled) {
+            background: #136b87;
+        }
+
+        #form-feedback {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        #loadingIndicator {
+            text-align: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #e3f2fd;
+            border-radius: 12px;
+        }
+        
+        #filePreview {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #c4e3ed;
+        }
+        
+        .success-message {
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 10px;
+            color: #2e7d32;
+        }
+        
+        .error-message {
+            background: #ffebee;
+            padding: 1rem;
+            border-radius: 10px;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Lumtere Finance<span>Group</span> Ltd</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                 <a href="eligibility.html" class="active">Eligibility</a>
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">T&C</a>
+                <a href="apply.html" class="apply-nav-btn">Apply now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container apply-page">
+            <h1 class="section-title">Apply for Finance</h1>
+            <p style="margin-bottom: 2rem;">
+                <i class="fas fa-info-circle" style="color: #2e8b99;"></i> 
+                Fill the form accurately. <strong>Employed = upload pay slip</strong> (will be merged into one PDF). 
+                Self‑employed = describe collateral.
+            </p>
+
+            <div class="apply-form">
+                <form id="loanForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First name *</label>
+                            <input type="text" id="firstName" placeholder="e.g. James" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last name *</label>
+                            <input type="text" id="lastName" placeholder="e.g. Mwangi" required>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Contact/Phone *</label>
+                            <input type="text" id="Number" placeholder="e.g. 70001234" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact/Email*</label>
+                            <input type="text" id="Email" placeholder="e.g. joeblow@gmail.com" required>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Occupation *</label>
+                            <input type="text" id="occupation" placeholder="e.g. electrician, barista" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Location applying from *</label>
+                            <input type="text" id="location" placeholder="city / region" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>Current address *</label>
+                        <textarea id="address" rows="2" placeholder="street, postcode ..." required></textarea>
+                    </div>
+                      <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>Reason For Applying *</label>
+                        <textarea id="Text" rows="2" placeholder="Text, Text..." required></textarea>
+                    </div>
+
+                    <label>Employment type *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="empType" value="employed" checked> Employed (permanent/contract)</label>
+                        <label><input type="radio" name="empType" value="selfemployed"> Self‑employed / sole trader</label>
+                    </div>
+                    <label>Loan Type *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="loantype" value="Personal Loan" checked> Personal Loan</label>
+                        <label><input type="radio" name="loantype" value="Business Loan"> Business Loan</label>
+			        <label><input type="radio" name="loantype" value="School Fee Loan"> School Fee Loan</label>
+                    </div>
+
+                    <div id="employedBlock" class="conditional-block">
+                        <i class="fas fa-file-upload" style="color:#0f6b7d;"></i>
+                        <label for="paySlip">Upload your current pay slip (PDF or image) *</label>
+                        <input type="file" id="paySlip" accept=".pdf,.jpg,.jpeg,.png">
+                        <div class="file-note">Most recent payslip (last 2 months). Max 8MB</div>
+                        <div id="filePreview" style="display: none;">
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #2e8b99;"></i> Selected file:</p>
+                            <div id="fileInfo" style="font-size: 0.9rem; color: #255f73;"></div>
+                        </div>
+                    </div>
+
+                    <div id="selfemployedBlock" class="conditional-block" style="display: none;">
+                        <i class="fas fa-gem" style="color:#0f6b7d;"></i>
+                        <label for="collateral">Describe your collateral (asset type, estimated value) *</label>
+                        <textarea id="collateral" rows="3" placeholder="e.g. Ford Transit van 2018, value approx £9k; or property equity..."></textarea>
+                        <div class="file-note">We may ask for proof later.</div>
+                    </div>
+
+                    <div class="terms-agree">
+                        <input type="checkbox" id="agreeTerms">
+                        <label for="agreeTerms">I have read and agree to the <a href="terms.html" style="color:#0b4f6c; text-decoration:underline;">Terms & conditions</a> and privacy policy. *</label>
+                    </div>
+
+                    <div id="loadingIndicator" style="display: none;">
+                        <i class="fas fa-spinner fa-spin" style="color: #0b4f6c; font-size: 2rem;"></i>
+                        <p style="color: #0b4f6c; margin-top: 0.5rem;">Generating your merged PDF... Please wait.</p>
+                    </div>
+                    
+                    <button type="button" id="submitBtn" class="btn-submit" disabled>📄  GENERATE MERGED APPLICATION (PDF + Payslip)</button>
+                    <div id="form-feedback"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                 <a href="eligibility.html" class="active">Eligibility</a>
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms</a>
+                <a href="apply.html">Apply</a>
+            </div>
+            <div class="footer-copy">
+                © 2026 Lumtere Finance Ltd – Small finance group founded on the 25th of December 2025
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application form JavaScript -->
+    <script src="js/apply.js"></script>
+</body>
+</html>

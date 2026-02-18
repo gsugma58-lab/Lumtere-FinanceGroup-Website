@@ -1,0 +1,440 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8fafd;
+    color: #1a2b3e;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.highlight {
+    color: #2d7ee9;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(45, 126, 233, 0.2);
+    z-index: -1;
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+    background: white;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #0b2b4f;
+}
+
+.logo span {
+    color: #2d7ee9;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1e2f44;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2d7ee9;
+}
+
+.apply-nav-btn {
+    background: #0b2b4f;
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.apply-nav-btn:hover {
+    background: #1a3f64;
+    color: white !important;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0b2b4f;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px -5px rgba(11,43,79,0.3);
+}
+
+.btn:hover {
+    background: #1a3f64;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(11,43,79,0.4);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    padding: 40px 0 80px;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+    overflow: visible;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #0b2b4f;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #4a5a72;
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+/* Semi-circle container */
+.hero-image-container {
+    position: relative;
+    height: 550px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Outer semi-circle (decorative) */
+.outer-semi-circle {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 520px;
+    height: 520px;
+    border-radius: 0 0 0 520px;
+    background: linear-gradient(135deg, rgba(45,126,233,0.08) 0%, rgba(11,43,79,0.03) 100%);
+    border: 2px dashed rgba(45,126,233,0.25);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main semi-circle with image */
+.main-semi-circle {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    width: 470px;
+    height: 470px;
+    overflow: hidden;
+    border-radius: 0 0 0 470px;
+    box-shadow: -25px 25px 45px rgba(0,0,0,0.2);
+    z-index: 2;
+    border: 4px solid white;
+}
+
+.main-semi-circle-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main-semi-circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(11,43,79,0.25) 0%, rgba(45,126,233,0.15) 100%);
+    pointer-events: none;
+}
+
+/* Decorative patterns inside outer semi-circle */
+.semi-circle-pattern {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    width: 480px;
+    height: 480px;
+    border-radius: 0 0 0 480px;
+    border: 2px solid rgba(255,255,255,0.25);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.semi-circle-dots {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    width: 450px;
+    height: 450px;
+    border-radius: 0 0 0 450px;
+    background-image: radial-gradient(rgba(255,255,255,0.3) 2px, transparent 2px);
+    background-size: 18px 18px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Feature cards - neatly arranged inside first semi-circle */
+.feature-card {
+    position: absolute;
+    background: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.15);
+    font-weight: 600;
+    color: #0b2b4f;
+    border: 1px solid rgba(45,126,233,0.2);
+    z-index: 10;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.98);
+    min-width: 170px;
+    justify-content: center;
+}
+
+.feature-card i {
+    color: #2d7ee9;
+    font-size: 1.1rem;
+}
+
+/* Position cards in two columns like your sketch */
+.feature-1 {
+    top: 10%;
+    right: 50%;
+}
+
+.feature-2 {
+    top: 20%;
+    right: 35%;
+}
+
+.feature-3 {
+    top: 30%;
+    right: 30%;
+}
+
+.feature-4 {
+    top: 40%;
+    right: 15%;
+}
+
+.feature-5 {
+    top: 50%;
+    right: 10%;
+}
+
+/* Small decorative elements */
+.decorative-line {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #2d7ee9, transparent);
+    z-index: 3;
+}
+
+.decorative-circle {
+    position: absolute;
+    bottom: 50px;
+    left: 70px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffd966;
+    opacity: 0.6;
+    z-index: 3;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #0f1e2f;
+    color: #b0c2da;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #b0c2da;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-copy {
+    text-align: center;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    border-top: 1px solid #1e3347;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text p {
+        margin: 0 auto 32px;
+    }
+    
+    .hero-image-container {
+        height: 500px;
+        margin-top: 40px;
+    }
+    
+    .outer-semi-circle,
+    .main-semi-circle,
+    .semi-circle-pattern,
+    .semi-circle-dots {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .outer-semi-circle {
+        width: 440px;
+        height: 440px;
+    }
+    
+    .main-semi-circle {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .semi-circle-pattern {
+        width: 360px;
+        height: 360px;
+    }
+    
+    .semi-circle-dots {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .feature-1 { top: 10%; right: 50%; }
+    .feature-2 { top: 26%; right: 25%; }
+    .feature-3 { top: 42%; right: 50%; }
+    .feature-4 { top: 58%; right: 25%; }
+    .feature-5 { top: 74%; right: 50%; }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+    
+    .feature-card {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .outer-semi-circle {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .main-semi-circle {
+        width: 290px;
+        height: 290px;
+    }
+    
+    .feature-card {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        min-width: 120px;
+    }
+    
+    .feature-1 { top: 8%; right: 45%; }
+    .feature-2 { top: 24%; right: 20%; }
+    .feature-3 { top: 40%; right: 45%; }
+    .feature-4 { top: 56%; right: 20%; }
+    .feature-5 { top: 72%; right: 45%; }
+}

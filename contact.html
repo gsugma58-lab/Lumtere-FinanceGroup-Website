@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Contact Us - Lumtere Finance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(0,40,50,0.04);
+        }
+        .contact-info p {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        .contact-info i {
+            width: 2rem;
+            color: #0f6b7d;
+        }
+        .map-placeholder {
+            background: #e4f2f7;
+            height: 300px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b4f6c;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">       
+ <div class="logo">Lumtere Finance<span>Group</span> Ltd</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                 <a href="eligibility.html" class="active">Eligibility</a>
+                <a href="index.html" class="active">Contact</a>
+                <a href="terms.html">T&C</a>
+                <a href="apply.html" class="apply-nav-btn">Apply now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container contact-page">
+            <h1 class="section-title">Contact Us</h1>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 4th street, Eriku, Morobe Provonce,Papua New Guinea</p>
+                    <p><i class="fas fa-phone-alt"></i> +675 7946 0138</p>
+                    <p><i class="fas fa-envelope"></i> apply@Wantoko.pg></p>
+                    <p><i class="fas fa-clock"></i> Mon–Fri 9am – 5pm</p>
+                    
+                    <h3 style="margin-top: 2rem; color: #0b4f6c;">Business Hours</h3>
+                    <p>Monday - Friday: 9:00 - 17:00<br>
+                    Saturday: 10:00 - 14:00 (appointments only)<br>
+                    Sunday: Closed</p>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="color: #0b4f6c; margin-bottom: 1rem;">Send us a message</h3>
+                    <form id="contactForm">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.8rem;" required>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.8rem;" required>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 0.8rem;" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-placeholder" style="margin-top: 2rem;">
+                <i class="fas fa-map" style="margin-right: 0.5rem;"></i> Interactive Map Would Be Here
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about/">About</a>
+                 <a href="eligibility.html" class="active">Eligibility</a>
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms</a>
+                <a href="apply.html">Apply</a>
+            </div>
+            <div class="footer-copy">
+                © 2026 Lumtere Finance Ltd – - Small finance group founded on the 25th of December 2025
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/apply.js"></script>
+</body>
+</html>
